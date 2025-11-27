@@ -1,9 +1,99 @@
 <!DOCTYPE html>
-<html lang="'en">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta  name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Projects Website</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://kit.fontawesome.com/cdc9c1403e.js" crossorigin="anonymous"></script>
 </head>
+
+<body id="wrapper">
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+    
+      function App() {
+        const [inputs, setInputs] = React.useState({
+          email: "",
+          password: ""
+        });
+
+        const handleChange = (e) => {
+          const name = e.target.name;
+          const value = e.target.value;
+          setInputs(values => ({ ...values, [name]: value }));
+        };
+
+        const handleSubmit = (e) => {
+          e.preventDefault();
+        
+        };
+
+        return (
+        <>
+          <div className="formContainer">
+            <div className='logoContainer'>
+            <a href="index.html" id="navbar__logo">Bubster</a>
+            </div >
+            <form className="myForm" onSubmit={handleSubmit}>
+              <label>
+                <p className='formText'>Sign-up</p>
+                <input
+                  placeholder="Email"
+                  onChange={handleChange}
+                  type="email"
+                  name="email"
+                  value={inputs.email}
+                  size="25"
+                />
+              </label>
+
+              <label >
+          
+                <input
+                 placeholder="Password"
+                  type="password"
+                  size="25"
+                  value={inputs.password}
+                  name="password"
+                  onChange={handleChange}
+                />
+              </label>
+
+              <button  className="button2" type="submit">Send</button>
+              <p className="pBottom">
+              Already have an account? <a className='links' href="login.html">Log-in</a>
+            </p>
+            </form>
+            </div>
+            <>
+        <div className='rightsContainer'>
+          <p className="website__rights">
+            © Bubs {new Date().getFullYear()} All rights reserved
+          </p>
+        </div>
+        </>
+    </>
+         
+        );
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+</body>
+</html>
